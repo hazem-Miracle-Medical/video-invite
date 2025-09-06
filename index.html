@@ -1,61 +1,63 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>دعوة المؤتمر – عرض GIF كصفحات</title>
-  <style>
-    /* ---------- إعدادات عامة ---------- */
-    html,body{
-      margin:0;
-      padding:0;
-      background:#000;
-      color:#fff;
-      font-family:Arial,Helvetica,sans-serif;
-      overflow-y:scroll;          /* تمكين التمرير العمودي */
-    }
+<meta charset="UTF-8">
+<title>دعوة المؤتمر – صفحات GIF</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+/* ---------- إعدادات عامة ---------- */
+html,body{
+    margin:0;
+    padding:0;
+    background:#000;
+    color:#fff;
+    font-family:Arial, Helvetica, sans-serif;
+}
 
-    /* ---------- كل "صفحة" GIF ---------- */
+/* ---------- كل صفحة GIF ---------- */
+.page{
+    /* كل صفحة تملئ عرض الشاشة، والارتفاع على الأقل يساوي ارتفاع النافذة */
+    min-height:100vh;          /* يجعلها تأخذ كامل الشاشة */
+    display:flex;              /* لتوسيط الصورة داخل الصفحة */
+    justify-content:center;
+    align-items:center;
+    border-bottom:2px solid #444;   /* فاصل بسيط (اختياري) */
+}
+
+/* الصورة نفسها */
+.page img{
+    max-width:100%;            /* لا تتجاوز عرض الشاشة */
+    max-height:100%;            /* لا تتجاوز ارتفاع الشاشة */
+    display:block;             /* يضمن أن الصورة لا تلتصق بأي عنصر آخر */
+}
+
+/* ---------- طباعة إلى PDF (صفحة‑صفحة) ---------- */
+@media print{
     .page{
-      height:100vh;               /* يملأ كامل ارتفاع الشاشة */
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      border-bottom:2px solid #444;   /* خط فاصل بسيط (اختياري) */
-    }
-
-    .page img{
-      max-width:100%;
-      max-height:100%;
-    }
-
-    /* ---------- طباعة إلى PDF (صفحة لكل GIF) ---------- */
-    @media print{
-      .page{
-        page-break-after:always;   /* يُقسم كل صورة إلى صفحة مستقلة */
-        height:auto;               /* يُصبح الارتفاع حسب الحجم الفعلي */
+        page-break-after:always;   /* كل صورة تُطبع على صفحة مستقلة */
+        min-height:auto;           /* لا نحتاج لملء الشاشة أثناء الطباعة */
         border:none;
-      }
     }
-  </style>
+}
+</style>
 </head>
 <body>
 
-  <!-- 14 صورة GIF متتالية -->
-  <section class="page"><img src="1.gif"  alt="صفحة 1"></section>
-  <section class="page"><img src="2.gif"  alt="صفحة 2"></section>
-  <section class="page"><img src="3.gif"  alt="صفحة 3"></section>
-  <section class="page"><img src="4.gif"  alt="صفحة 4"></section>
-  <section class="page"><img src="5.gif"  alt="صفحة 5"></section>
-  <section class="page"><img src="6.gif"  alt="صفحة 6"></section>
-  <section class="page"><img src="7.gif"  alt="صفحة 7"></section>
-  <section class="page"><img src="8.gif"  alt="صفحة 8"></section>
-  <section class="page"><img src="9.gif"  alt="صفحة 9"></section>
-  <section class="page"><img src="10.gif" alt="صفحة 10"></section>
-  <section class="page"><img src="11.gif" alt="صفحة 11"></section>
-  <section class="page"><img src="12.gif" alt="صفحة 12"></section>
-  <section class="page"><img src="13.gif" alt="صفحة 13"></section>
-  <section class="page"><img src="14.gif" alt="صفحة 14"></section>
+<!-- 14 صورة متتابعة -->
+<section class="page"><img src="1.gif"  alt="صفحة 1"></section>
+<section class="page"><img src="2.gif"  alt="صفحة 2"></section>
+<section class="page"><img src="3.gif"  alt="صفحة 3"></section>
+<section class="page"><img src="4.gif"  alt="صفحة 4"></section>
+<section class="page"><img src="5.gif"  alt="صفحة 5"></section>
+<section class="page"><img src="6.gif"  alt="صفحة 6"></section>
+<section class="page"><img src="7.gif"  alt="صفحة 7"></section>
+<section class="page"><img src="8.gif"  alt="صفحة 8"></section>
+<section class="page"><img src="9.gif"  alt="صفحة 9"></section>
+<section class="page"><img src="10.gif" alt="صفحة 10"></section>
+<section class="page"><img src="11.gif" alt="صفحة 11"></section>
+<section class="page"><img src="12.gif" alt="صفحة 12"></section>
+<section class="page"><img src="13.gif" alt="صفحة 13"></section>
+<section class="page"><img src="14.gif" alt="صفحة 14"></section>
 
 </body>
 </html>
